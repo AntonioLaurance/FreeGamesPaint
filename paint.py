@@ -2,38 +2,37 @@
 Paint: Juego diseñado para dibujar y crear figuras.
 
 Autores:
-Programador 1: Moisés Adame Aguilar (A01660927)
-Programador 2: Ricardo Campos Luna  (A01656898)
-Programador 3:
+Programador 1: Moisés Adame Aguilar         (A01660927)
+Programador 2: Ricardo Campos Luna          (A01656898)
+Programador 3: Humberto Ivan Ulloa Cardona  (A01657143)
 
 Fecha: 9 de Mayo del 2022
 """
 
-from turtle import *
-
+import turtle 
 from freegames import vector
 
 
 def line(start, end):
     """Draw line from start to end."""
-    up()
-    goto(start.x, start.y)
-    down()
-    goto(end.x, end.y)
+    turtle.up()
+    turtle.goto(start.x, start.y)
+    turtle.down()
+    turtle.goto(end.x, end.y)
 
 
 def square(start, end):
     """Draw square from start to end."""
-    up()
-    goto(start.x, start.y)
-    down()
-    begin_fill()
+    turtle.up()
+    turtle.goto(start.x, start.y)
+    turtle.down()
+    turtle.begin_fill()
 
     for count in range(4):
-        forward(end.x - start.x)
-        left(90)
+        turtle.forward(end.x - start.x)
+        turtle.left(90)
 
-    end_fill()
+    turtle.end_fill()
 
 
 def circleP(start, end):
@@ -77,20 +76,21 @@ def store(key, value):
 
 
 state = {'start': None, 'shape': line}
-setup(420, 420, 370, 0)
-onscreenclick(tap)
-listen()
-onkey(undo, 'u')
-onkey(lambda: color('black'), 'K')
-onkey(lambda: color('white'), 'W')
-onkey(lambda: color('green'), 'G')
-onkey(lambda: color('blue'), 'B')
-onkey(lambda: color('red'), 'R')
-onkey(lambda: color('magenta'), 'M')
-onkey(lambda: store('shape', line), 'l')
-onkey(lambda: store('shape', square), 's')
-onkey(lambda: store('shape', circleP), 'c')
-onkey(lambda: store('shape', rectangle), 'r')
-onkey(lambda: store('shape', triangle), 't')
-done()
+turtle.setup(420, 420, 370, 0)
+turtle.onscreenclick(tap)
+turtle.listen()
+turtle.onkey(turtle.undo, 'u')
+turtle.onkey(lambda: turtle.color('black'), 'K')
+turtle.onkey(lambda: turtle.color('white'), 'W')
+turtle.onkey(lambda: turtle.color('green'), 'G')
+turtle.onkey(lambda: turtle.color('blue'), 'B')
+turtle.onkey(lambda: turtle.color('red'), 'R')
+turtle.onkey(lambda: turtle.color('pink'), 'P') # Rosa
+turtle.onkey(lambda: turtle.color('purple'), 'M') # Morado
+turtle.onkey(lambda: turtle.store('shape', line), 'l')
+turtle.onkey(lambda: turtle.store('shape', square), 's')
+turtle.onkey(lambda: turtle.store('shape', circle), 'c')
+turtle.onkey(lambda: turtle.store('shape', rectangle), 'r')
+turtle.onkey(lambda: turtle.store('shape', triangle), 't')
+turtle.done()
 
