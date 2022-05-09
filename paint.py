@@ -3,7 +3,7 @@ Paint: Juego diseñado para dibujar y crear figuras.
 
 Autores:
 Programador 1: Moisés Adame Aguilar (A01660927)
-Programador 2:
+Programador 2: Ricardo Campos Luna  (A01656898)
 Programador 3:
 
 Fecha: 9 de Mayo del 2022
@@ -85,3 +85,4 @@ onkey(lambda: store('shape', circle), 'c')
 onkey(lambda: store('shape', rectangle), 'r')
 onkey(lambda: store('shape', triangle), 't')
 done()
+
