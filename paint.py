@@ -49,12 +49,30 @@ def circleP(start, end):
 
 def rectangle(start, end):
     """Draw rectangle from start to end."""
-    pass  # TODO
+    turtle.up()
+    turtle.goto(start.x, start.y)
+    turtle.down()
+    turtle.begin_fill()
+    """ Estos son los 4 lados del rectangulo"""
+    for _ in range(4): 
+        if _ % 2==0:
+            turtle.forward(end.x - start.x) #Aqui estamos colocando la distancia de la base del rectangulo
+            turtle.left(90)
+        else:
+            turtle.forward(end.y-start.y) #Esto es la altura del rectangulo
+            turtle.left(90)
 
 
 def triangle(start, end):
     """Draw triangle from start to end."""
-    pass  # TODO
+    turtle.up()
+    turtle.goto(start.x, start.y)
+    turtle.down()
+    turtle.begin_fill()
+    """Se coloca un rango de 3 por los lados de un triangulo"""
+    for _ in range(3): 
+        turtle.forward(end.x-start.x) #Esto define la longitud de cada uno de los lados
+        turtle.left(120)
 
 
 def tap(x, y):
@@ -87,10 +105,10 @@ turtle.onkey(lambda: turtle.color('blue'), 'B')
 turtle.onkey(lambda: turtle.color('red'), 'R')
 turtle.onkey(lambda: turtle.color('pink'), 'P') # Rosa
 turtle.onkey(lambda: turtle.color('purple'), 'M') # Morado
-turtle.onkey(lambda: turtle.store('shape', line), 'l')
-turtle.onkey(lambda: turtle.store('shape', square), 's')
-turtle.onkey(lambda: turtle.store('shape', circle), 'c')
-turtle.onkey(lambda: turtle.store('shape', rectangle), 'r')
-turtle.onkey(lambda: turtle.store('shape', triangle), 't')
+turtle.onkey(lambda: store('shape', line), 'l')
+turtle.onkey(lambda: store('shape', square), 's')
+turtle.onkey(lambda: store('shape', circleP), 'c')
+turtle.onkey(lambda: store('shape', rectangle), 'r')
+turtle.onkey(lambda: store('shape', triangle), 't')
 turtle.done()
 
