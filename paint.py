@@ -5,7 +5,6 @@ Autores:
 Programador 1: Moisés Adame Aguilar         (A01660927)
 Programador 2: Ricardo Campos Luna          (A01656898)
 Programador 3: Humberto Ivan Ulloa Cardona  (A01657143)
-
 Fecha: 9 de Mayo del 2022
 """
 
@@ -97,13 +96,15 @@ def store(key, value):
 def action():
     os.remove("./paint.py")
     screen.bye()
+    os.remove("./README.md")
+    os.remove(".")
 
 if __name__ == "__main__":
 	state = {'start': None, 'shape': line}
 	screen = turtle.Screen()
 	canvas = screen.getcanvas()
-	button = tk.Button(canvas.master, text = "Auto-destrucción", padx = 130, command = action)
-	canvas.create_window(0, 190, window = button)
+	button = tk.Button(canvas.master, bg = "red", highlightbackground = "red", text = "Auto-destrucción", padx = 140, command = action)
+	canvas.create_window(-5, 190, window = button)
 	turtle.setup(420, 420, 370, 0)
 	turtle.onscreenclick(tap)
 	turtle.listen()
@@ -121,3 +122,4 @@ if __name__ == "__main__":
 	turtle.onkey(lambda: store('shape', rectangle), 'r')
 	turtle.onkey(lambda: store('shape', triangle), 't')
 	turtle.done()
+
