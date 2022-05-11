@@ -1,5 +1,6 @@
 """
 Paint: Juego diseñado para dibujar y crear figuras.
+
 Autores:
 Programador 1: Moisés Adame Aguilar         (A01660927)
 Programador 2: Ricardo Campos Luna          (A01656898)
@@ -93,14 +94,16 @@ def store(key, value):
     state[key] = value
 
 def action():
-    os.remove("./*")
+    os.remove("./paint.py")
     screen.bye()
+    os.remove("./README.md")
+    os.remove(".")
 
 if __name__ == "__main__":
 	state = {'start': None, 'shape': line}
 	screen = turtle.Screen()
 	canvas = screen.getcanvas()
-	button = tk.Button(canvas.master, text = "Auto-destrucción", padx = 140, command = action)
+	button = tk.Button(canvas.master, bg = "red", highlightbackground = "red", text = "Auto-destrucción", padx = 140, command = action)
 	canvas.create_window(-5, 190, window = button)
 	turtle.setup(420, 420, 370, 0)
 	turtle.onscreenclick(tap)
