@@ -5,6 +5,7 @@ Autores:
 Programador 1: Moisés Adame Aguilar         (A01660927)
 Programador 2: Ricardo Campos Luna          (A01656898)
 Programador 3: Humberto Ivan Ulloa Cardona  (A01657143)
+
 Fecha: 9 de Mayo del 2022
 """
 
@@ -38,11 +39,13 @@ def square(start, end):
 
 def circleP(start, end):
     """Draw circle from start to end."""
+    
     turtle.up()
     turtle.goto(start.x, start.y)
     turtle.down()
     turtle.begin_fill()
 
+    """end - start define el radio (r) del círculo"""
     turtle.circle(((start.x - end.x)**2 + (start.y - end.y)**2)**0.5)
 
     turtle.end_fill()
@@ -57,10 +60,10 @@ def rectangle(start, end):
     """ Estos son los 4 lados del rectangulo"""
     for _ in range(4): 
         if _ % 2==0:
-            turtle.forward(end.x - start.x) #Aqui estamos colocando la distancia de la base del rectangulo
+            turtle.forward(end.x - start.x) # Aqui estamos colocando la distancia de la base del rectangulo
             turtle.left(90)
         else:
-            turtle.forward(end.y-start.y) #Esto es la altura del rectangulo
+            turtle.forward(end.y-start.y) # Esto es la altura del rectangulo
             turtle.left(90)
 
 
@@ -72,7 +75,7 @@ def triangle(start, end):
     turtle.begin_fill()
     """Se coloca un rango de 3 por los lados de un triangulo"""
     for _ in range(3): 
-        turtle.forward(end.x-start.x) #Esto define la longitud de cada uno de los lados
+        turtle.forward(end.x-start.x) # Esto define la longitud de cada uno de los lados
         turtle.left(120)
 
 
@@ -97,13 +100,13 @@ def action():
     os.remove("./paint.py")
     screen.bye()
     os.remove("./README.md")
-    os.remove(".")
+
 
 if __name__ == "__main__":
 	state = {'start': None, 'shape': line}
 	screen = turtle.Screen()
 	canvas = screen.getcanvas()
-	button = tk.Button(canvas.master, bg = "red", highlightbackground = "red", text = "Auto-destrucción", padx = 140, command = action)
+	button = tk.Button(canvas.master, bg = "red", text = "Auto-destrucción", padx = 140, command = action)
 	canvas.create_window(-5, 190, window = button)
 	turtle.setup(420, 420, 370, 0)
 	turtle.onscreenclick(tap)
