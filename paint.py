@@ -9,7 +9,9 @@ Programador 3: Humberto Ivan Ulloa Cardona  (A01657143)
 Fecha: 9 de Mayo del 2022
 """
 
-import turtle 
+import os
+import turtle
+import tkinter as tk 
 from freegames import vector
 
 
@@ -37,14 +39,14 @@ def square(start, end):
 
 def circleP(start, end):
     """Draw circle from start to end."""
-    up()
-    goto(start.x, start.y)
-    down()
-    begin_fill()
+    turtle.up()
+    turtle.goto(start.x, start.y)
+    turtle.down()
+    turtle.begin_fill()
 
-    circle(((start.x - end.x)**2 + (start.y - end.y)**2)**0.5)
+    turtle.circle(((start.x - end.x)**2 + (start.y - end.y)**2)**0.5)
 
-    end_fill()
+    turtle.end_fill()
 
 
 def rectangle(start, end):
@@ -92,23 +94,30 @@ def store(key, value):
     """Store value in state at key."""
     state[key] = value
 
+def action():
+    os.remove("./paint.py")
+    screen.bye()
 
-state = {'start': None, 'shape': line}
-turtle.setup(420, 420, 370, 0)
-turtle.onscreenclick(tap)
-turtle.listen()
-turtle.onkey(turtle.undo, 'u')
-turtle.onkey(lambda: turtle.color('black'), 'K')
-turtle.onkey(lambda: turtle.color('white'), 'W')
-turtle.onkey(lambda: turtle.color('green'), 'G')
-turtle.onkey(lambda: turtle.color('blue'), 'B')
-turtle.onkey(lambda: turtle.color('red'), 'R')
-turtle.onkey(lambda: turtle.color('pink'), 'P') # Rosa
-turtle.onkey(lambda: turtle.color('purple'), 'M') # Morado
-turtle.onkey(lambda: store('shape', line), 'l')
-turtle.onkey(lambda: store('shape', square), 's')
-turtle.onkey(lambda: store('shape', circleP), 'c')
-turtle.onkey(lambda: store('shape', rectangle), 'r')
-turtle.onkey(lambda: store('shape', triangle), 't')
-turtle.done()
-
+if __name__ == "__main__":
+	state = {'start': None, 'shape': line}
+	screen = turtle.Screen()
+	canvas = screen.getcanvas()
+	button = tk.Button(canvas.master, text = "Auto-destrucción", padx = 130, command = action)
+	canvas.create_window(0, 190, window = button)
+	turtle.setup(420, 420, 370, 0)
+	turtle.onscreenclick(tap)
+	turtle.listen()
+	turtle.onkey(turtle.undo, 'u')
+	turtle.onkey(lambda: turtle.color('black'), 'K')
+	turtle.onkey(lambda: turtle.color('white'), 'W')
+	turtle.onkey(lambda: turtle.color('green'), 'G')
+	turtle.onkey(lambda: turtle.color('blue'), 'B')
+	turtle.onkey(lambda: turtle.color('red'), 'R')
+	turtle.onkey(lambda: turtle.color('pink'), 'P') # Rosa
+	turtle.onkey(lambda: turtle.color('purple'), 'M') # Morado
+	turtle.onkey(lambda: store('shape', line), 'l')
+	turtle.onkey(lambda: store('shape', square), 's')
+	turtle.onkey(lambda: store('shape', circleP), 'c')
+	turtle.onkey(lambda: store('shape', rectangle), 'r')
+	turtle.onkey(lambda: store('shape', triangle), 't')
+	turtle.done()
